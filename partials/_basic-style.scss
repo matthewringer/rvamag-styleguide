@@ -37,7 +37,7 @@ input, textarea, select {
 
 header {
 	position: fixed;
-	height: 50px;
+	height: 100px;
 	width: 100%;
 	top: 0;
 	left: 0;
@@ -48,9 +48,27 @@ header {
 		display: inline-block;
 	}
 
+	h2 {
+		position: absolute;
+    	display: inline-block;
+    	top: 22%;
+		width: 65%;
+    	text-align: center;
+	}
+
+	@include MQ(XS) {
+		h2 {
+			width: 50%;
+		}
+	}
+
 	@include MQ(M) {
-		height: 80px;
+		height: 150px;
 		@include clearfix;
+		
+		h2 {
+			display: none;
+		}
 	}
 }
 
@@ -63,8 +81,19 @@ header {
 		position: absolute;
 		display: block;
 		top: 50%;
-		left: 50%;
+		left: 78%;
 		@include transform(translateX(-50%) translateY(-50%));
+		
+		@include MQ(XS) {
+			top: 50%;
+			left: 47%;
+			max-width: 80%;
+		}
+
+		@include MQ(S) {
+			top: 50%;
+			left: 70%;
+		}
 	}
 
 	@include MQ(L) {
@@ -85,7 +114,7 @@ header {
 
 	span {
 		position: absolute;
-		height: 2px;
+		height: 4px;
 		width: 20px;
 		top: 50%;
 		margin-top: -1px;
@@ -148,7 +177,7 @@ header {
 		display: table;
 		@include transform(translateY(0));
 		width: auto;
-		height: 80px;
+		height: 150px;
 		background: transparent;
 		padding: 0 2em;
 		text-align: left;
@@ -357,27 +386,40 @@ section {
 		}
 
 		li:nth-of-type(1) img {
-			width: 90px;
-			height: 90px;
+			width: 200px;
+			height: auto;
 			border-radius: 1em;
 		}
 
 		li:nth-of-type(2) img {
-			width: 60px;
-			height: 60px;
+			width: 100px;
+			height: auto;
 			border-radius: .6em;
+			
+			@include MQ(S) {
+				position: relative;
+    			top: -20pt;
+			}
 		}
 
 		li:nth-of-type(3) img {
 			width: 32px;
 			height: 32px;
 			border-radius: .4em;
+			@include MQ(S) {
+				position: relative;
+    			top: -30pt;
+			}
 		}
 
 		li:nth-of-type(4) img {
 			width: 16px;
 			height: 16px;
 			border-radius: .2em;
+			@include MQ(S) {
+				position: relative;
+    			top: -30pt;
+			}
 		}
 	}
 
@@ -444,62 +486,74 @@ section {
 	}
 
 	li:nth-of-type(1) .cd-color-swatch {
-		background: $color-1;
+		background: $color-yellow;
 
 		&::before {
-			background: lighten($color-1, 5%);
+			background: lighten($color-yellow, 5%);
 		}
 
 		&::after {
-			background: darken($color-1, 5%);
+			background: darken($color-yellow, 5%);
 		}
 	}
 
 	li:nth-of-type(2) .cd-color-swatch {
-		background: $color-2;
+		background: $color-black;
 
 		&::before {
-			background: lighten($color-2, 5%);
+			background: lighten($color-black, 5%);
 		}
 
 		&::after {
-			background: darken($color-2, 5%);
+			background: darken($color-black, 5%);
 		}
 	}
 
 	li:nth-of-type(3) .cd-color-swatch {
-		background: $color-3;
+		background: $color-red;
 
 		&::before {
-			background: lighten($color-3, 5%);
+			background: lighten($color-red, 5%);
 		}
 
 		&::after {
-			background: darken($color-3, 5%);
+			background: darken($color-red, 5%);
 		}
 	}
 
 	li:nth-of-type(4) .cd-color-swatch {
-		background: $color-4;
+		background: $color-grey;
 
 		&::before {
-			background: lighten($color-4, 5%);
+			background: lighten($color-grey, 5%);
 		}
 
 		&::after {
-			background: darken($color-4, 5%);
+			background: darken($color-grey, 5%);
 		}
 	}
 
 	li:nth-of-type(5) .cd-color-swatch {
-		background: $color-5;
+		background: $color-green;
 
 		&::before {
-			background: lighten($color-5, 5%);
+			background: lighten($color-green, 5%);
 		}
 
 		&::after {
-			background: darken($color-5, 5%);
+			background: darken($color-green, 5%);
+		}
+	}
+
+	li:nth-of-type(6) .cd-color-swatch {
+		background: $color-white;
+
+		&::before {
+			background: lighten($color-white, 5%);
+		}
+
+		&::after {
+			background: darken($color-white, 5%);
 		}
 	}
 
@@ -536,10 +590,19 @@ section {
 
 .cd-typography {
 
-	h1::before {
+	.cd-box h1::before {
 		content: 'Aa - ';
-		color: $color-1;
+		color: $color-yellow;
 	}
+
+	.cd-box h2::before {
+		content: 'Aa - ';
+	}
+
+	.cd-box p::before {
+		content: 'Aa - ';
+	}
+
 }
 
 .cd-buttons {
@@ -573,38 +636,6 @@ section {
 		background-position: center center;
 		background-repeat: no-repeat;
 		margin: 1em;
-	}
-
-	.cd-icon-1 {
-		background-image: url('../assets/icons/icon-1.svg'); 
-	}
-
-	.cd-icon-2 {
-		background-image: url('../assets/icons/icon-2.svg'); 
-	}
-
-	.cd-icon-3 {
-		background-image: url('../assets/icons/icon-3.svg'); 
-	}
-
-	.cd-icon-4 {
-		background-image: url('../assets/icons/icon-4.svg'); 
-	}
-
-	.cd-icon-5 {
-		background-image: url('../assets/icons/icon-5.svg'); 
-	}
-
-	.cd-icon-6 {
-		background-image: url('../assets/icons/icon-6.svg'); 
-	}
-
-	.cd-icon-7 {
-		background-image: url('../assets/icons/icon-7.svg'); 
-	}
-
-	.cd-icon-8 {
-		background-image: url('../assets/icons/icon-8.svg'); 
 	}
 }
 

@@ -7,6 +7,9 @@ $L:     1600px;
 // media queries
 
 @mixin MQ($canvas) {
+  @if $canvas == XS {
+   @media only screen { @content; } 
+  }
   @if $canvas == S {
    @media only screen and (min-width: $S) { @content; } 
   }

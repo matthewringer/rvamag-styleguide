@@ -1,24 +1,51 @@
-@import 'bourbon'; // http://bourbon.io/
+@import './bourbon/bourbon'; // http://bourbon.io/
 
 @import '../partials/layout'; // responsive grid and media queries
 
+@import './font-awesome/font-awesome';
+
 // color palette - these colors will be the color swatches of the Colors section
 
-$color-1: #5f8ee4; // Cornflower Blue - Action color
-$color-2: #19191a; // Dark Blue
-$color-3: #e4655f; // Red
-$color-4: #e6e6e6; // light grey
-$color-5: #ffffff; // white
+$color-black: 	#0d0d0d; // Near Black
+$color-yellow: 	#fff200; // Yellow - Action color
+$color-red: 	#ee1c25; // Red
+$color-green: 	#6fce72; // Green
+$color-grey: 	#e6e6e6; // light grey
+$color-white: 	#ffffff; // white
 
 // additional colors
 
-$success: #6fce72; // green
-$alert: $color-3;  // red
+$success: $color-green; // green
+$alert: $color-red;  // red
+
+// Social Media colors
+
+$twitter: #00aced;
+$facebook: #3b5998;
+$googleplus: #dd4b39;
+$pinterest: #cb2027;
+$linkedin: #007bb6;
+$youtube: #bb0000;
+$vimeo: #aad450;
+$tumblr: #32506d;
+$instagram: #517fa4;
+$flickr: #ff0084;
+$dribbble: #ea4c89;
+$quora: #a82400;
+$foursquare: #0072b1;
+$forrst: #5B9A68;
+$vk: #45668e;
+$wordpress: #21759b;
+$stumbleupon: #EB4823;
+$yahoo: #7B0099;
+$blogger: #fb8f3d;
+$soundcloud: #ff3a00;
 
 // fonts
 
-$primary-font: 'Merriweather', serif;
+$primary-font: 'Open Sans', sans-serif;
 $secondary-font: 'Open Sans', sans-serif;
+$serif-font: serif;
 
 /* -------------------------------- 
 
@@ -28,7 +55,7 @@ xBackground
 
 body {
 	/* this is the page background */
-	background-color: $color-5;
+	background-color: $color-white;
 }
 
 /* -------------------------------- 
@@ -39,11 +66,15 @@ xPatterns
 
 .cd-box {
 	/* this is the container of various design elements - i.e. the 2 logo of the branding section */
-	border: 1px solid $color-4;
+	border: 1px solid $color-grey;
 	border-radius: 3px;
-	background: $color-5;
+	background: $color-white;
 	box-shadow: 0 1px 1px rgba(#000, .05);
 	padding: 6px;
+}
+
+.bg-black {
+  background: $color-black;
 }
 
 /* -------------------------------- 
@@ -53,39 +84,52 @@ xNavigation
 -------------------------------- */
 
 header {
-	background-color: $color-2;
+	background-color: $color-black;
+
+	// @include MQ(S) {
+	// 	margin-bottom: 100px;
+	// }
+
+	h2 {
+		font-style: italic;
+		font-weight: 600;
+		color: $color-yellow;
+	}
 }
 
 .cd-logo {
 	/* logo box style */
-	background-color: $color-1;
-	width: 120px;
+	background-color: $color-black;
+	width: 100px;
+	height: 100px;
 
 	@include MQ(M) {
-		width: 180px;
+		width: 130px;
+		height: auto;
 	}
 }
 
 .cd-main-nav {
 	/* main navigation background color - full screen on small devices */
-	background: $color-2;
+	background: $color-black;
+	font-family: $secondary-font;
+  	font-weight: 800;
+  	text-transform: uppercase;
 
 	li a {
-		color: $color-5;
-		border-color: lighten($color-2, 5%);
+		color: $color-white;
+		border-color: lighten($color-black, 5%);
 	}
 
 	@include MQ(M) {
-		li a {
-			color: lighten($color-2, 40%);
-
+		li a  {
 			&.selected {
-				color: $color-5;
-				box-shadow: 0 2px 0 $color-1;
+				color: $color-grey;
+				box-shadow: 0 2px 0 $color-yellow;
 			}
 
-			.no-touch &:hover {
-				color: $color-5;
+			&.no-touch &:hover {
+				color: $color-yellow;
 			}
 		}
 	}
@@ -93,41 +137,41 @@ header {
 
 .cd-nav-trigger span {
 	/* hamburger menu */
-	background-color: $color-5;
+	background-color: $color-white;
 
 	&::before,
 	&::after {
 		/* upper and lower lines */
-		background-color: $color-5;
+		background-color: $color-white;
 	}
 }
 
 .nav-is-visible .cd-nav-trigger span {
 	/* hide line in the center on mobile when nav is visible */
-	background-color: rgba($color-5, 0);
+	background-color: rgba($color-white, 0);
 
 	&::before, &::after {
 		/* preserve visibility of upper and lower lines - close icon */
-		background-color: rgba($color-5, 1);
+		background-color: rgba($color-white, 1);
 	}
 }
 
 .cd-download {
 	/* download button top-right visible on big devices */
-	background-color: lighten($color-2, 10%);
+	background-color: lighten($color-black, 10%);
 
 	.no-touch &:hover {
-		background-color: lighten($color-2, 15%);
+		background-color: lighten($color-black, 15%);
 	}
 
 	span {
 		/* tooltip */
-		background: $color-1;
-		color: $color-5;
+		background: $color-yellow;
+		color: $color-white;
 
 		&::before {
 			/* right arrow color */
-			border-color: $color-1;
+			border-color: $color-yellow;
 		}
 	}
 }
@@ -139,12 +183,8 @@ xPage title
 -------------------------------- */
 
 main > h1 {
-	color: $color-2;
 
-	@include MQ(L) {
-		/* title goes into the header on big devices */
-		color: $color-5;
-	}
+	display: block;
 }
 
 /* -------------------------------- 
@@ -153,14 +193,16 @@ xTypography
 
 -------------------------------- */
 
-h1, h2 {
+h1, h2, h3{
 	font-family: $secondary-font;
-	color: $color-2;
+	color: $color-black;
 }
 
 h1 {
+	color: $color-yellow;
+	background-color: $color-black;
 	font-size: 2.4rem;
-	font-weight: 300;
+	font-weight: 800;
 	line-height: 1.2;
 	margin: 0 0 .4em;
 
@@ -174,8 +216,8 @@ h1 {
 }
 
 h2 {
-	font-weight: bold;
-	text-transform: uppercase;
+	font-weight: 800;
+	//text-transform: uppercase;
 	margin: 1em 0;
 
 	@include MQ(S) {
@@ -186,16 +228,109 @@ h2 {
 
 section > h2::before {
 	/* number before each section title */
-	color: darken($color-4, 15%);
+	color: darken($color-grey, 15%);
+}
+
+.author {
+	font-family: $serif-font;
+	color: $color-yellow;
+	background-color: $color-black;
+	line-height: 1.2;
+	margin: 1em 0;
+	font-style: italic;
+	font-weight: 600;
+	font-size: 1.8rem;
+	padding: 5pt;
+
+	a {
+		color: darken($color-yellow, 5%);
+		//text-decoration: none;
+	}
+
+	@include MQ(S) {
+		font-size: 1.8rem;
+		margin: 1em 0 1.4em;
+	}
+}
+
+.author::before {
+	/* by before the author's name */
+	content: 'by ';
+	font-style: normal;
+	font-weight: 400;
+	color: darken($color-grey, 15%);
+}
+
+blockquote {
+	border-top: 10px solid $color-grey;
+	border-bottom: 2px solid $color-grey;
+	padding: 10px;
+	font-size: 2.4rem;
+	font-weight: 800;
+	line-height: 1.2;
+	margin: .4em 0;
+
+	a {
+		color: darken($color-yellow, 5%);
+		text-decoration: underline;
+	}
+
+	@include MQ(S) {
+		font-size: 3.2rem;
+	}
+
+	@include MQ(M) {
+		font-size: 4rem;
+	}
+}
+
+cite {
+	font-size: 1.4rem;
+	line-height: 1.4;
+	a {
+		color: darken($color-yellow, 5%);
+		text-decoration: underline;
+	}
+	@include MQ(S) {
+		font-size: 1.6rem;
+		line-height: 1.6;
+	}
+}
+
+q {
+	font-size: 1.4rem;
+	line-height: 1.4;
+	font-style: italic;
+	margin: .4em 0;
+	
+	a {
+		color: darken($color-yellow, 5%);
+		text-decoration: underline;
+	}
+
+	@include MQ(S) {
+		font-size: 1.6rem;
+		line-height: 1.6;
+	}
+}
+q:before, q:after {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+q:before {
+    content: "\201C";
+}
+q:after {
+    content: "\201D";
 }
 
 p {
 	font-size: 1.4rem;
 	line-height: 1.4;
-	color: lighten($color-2, 25%);
+	color: lighten($color-black, 25%);
 
 	a {
-		color: $color-1;
+		color: darken($color-yellow, 5%);
 		text-decoration: underline;
 	}
 
@@ -212,29 +347,33 @@ xButtons
 -------------------------------- */
 
 .btn {
+	
 	border: none;
 	box-shadow: none;
 	border-radius: .25em;
 	font: {
-		size: 1.4rem;
+		size: 2.4rem;
+		weight: 800;
 		family: $secondary-font;
 	}
-	color: $color-5;
-	padding: .6em 2.2em;
+	color: $color-white;
+	padding: 3pt 10pt;
 	cursor: pointer;
-	background: $color-1;
+	background: $color-yellow;
+	color: $color-black;
+	text-transform: uppercase;
 
 	&:focus {
 		outline: none;
 	}
 
 	.no-touch &:hover {
-		background: lighten($color-1, 5%);
+		background: lighten($color-yellow, 5%);
 	}
 
 	&.btn-success {
 		background: $success;
-
+		color: $color-white;
 		.no-touch &:hover {
 			background: lighten($success, 5%);
 		}
@@ -242,20 +381,20 @@ xButtons
 
 	&.btn-alert {
 		background: $alert;
-
+		color: $color-yellow;
 		.no-touch &:hover {
 			background: lighten($alert, 5%);
 		}
 	}
 
 	&.btn-outline {
-		color: $color-1;
+		color: $color-black;
 		background: transparent;
-		box-shadow: inset 0 0 0 1px $color-1;
+		box-shadow: inset 0 0 0 1px $color-black;
 
 		.no-touch &:hover {
-			color: $color-5;
-			background: $color-1;
+			color: $color-white;
+			background: $color-yellow;
 		}
 	}
 
@@ -266,7 +405,7 @@ xButtons
 
 .cd-buttons .cd-box:nth-of-type(2) span {
 	/* CSS class name color */ 
-	color: $color-1;
+	color: $color-green;
 }
 
 /* -------------------------------- 
@@ -279,6 +418,10 @@ xIcons
 	/* icons size */
 	width: 32px;
 	height: 32px;
+	
+	& i:hover {
+		color: $facebook;
+	}
 }
 
 /* -------------------------------- 
@@ -287,10 +430,15 @@ xForm
 
 -------------------------------- */
 
+#form .cd-box {
+	background-color: $color-grey;
+	//background: $color-grey;
+}
+
 input[type=text], select {
-	border: 1px solid $color-4;
+	border: 1px solid $color-grey;
 	border-radius: .25em;
-	background: $color-5;
+	background: $color-white;
 
 	&:focus {
 		outline: none;
@@ -312,8 +460,8 @@ input[type=text] {
 	}
 
 	&:focus {
-		border-color: $color-1;
-		box-shadow: 0 0 6px rgba($color-1, .2);
+		border-color: $color-yellow;
+		box-shadow: 0 0 6px rgba($color-yellow, .2);
 	}
 }
 
@@ -346,13 +494,15 @@ input[type=checkbox] {
 
 	&::before {
 		left: 0;
-		border: 1px solid $color-4;
-		box-shadow: inset 1px 1px rgba(#000, .03);
+		border: 1px solid  darken($color-grey, 50%);
+		box-shadow: inset 1px 1px rgba($color-grey, .03);
+		//background-color: $color-grey;
 	}
 
 	&::after {
 		left: 3px;
 		background: url('../assets/form/icon-check.svg') no-repeat center center;
+		background-color: $color-grey;
 		display: none;
 	}
 }
@@ -367,7 +517,7 @@ input[type=checkbox] {
 
 input[type=radio]:checked + label::before,
 input[type=checkbox]:checked + label::before {
-	background-color: $color-2;
+	//background-color: darken($color-grey, 50%);
 	border: none;
 	box-shadow: none;
 }

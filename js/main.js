@@ -52,20 +52,22 @@ jQuery(document).ready(function($){
 	/*******************
 		typography
 	********************/
-	var heading1 = $('#typography h1'),
-		heading1DescriptionText = heading1.children('span').eq(0),
-		heading2 = $('#typography h2'),
-		heading2DescriptionText = heading2.children('span').eq(0),
-		body = heading2.next('p'),
-		bodyDescriptionText = body.children('span').eq(0);
-		
-	setTypography(heading1, heading1DescriptionText);
-	setTypography(heading2, heading2DescriptionText);
-	setTypography(body, bodyDescriptionText);
+
+	var type_elements = $('#typography .cd-box').children().toArray();
+	var dict = [];
+
+	type_elements.forEach(function(element) {
+		var last = dict.push({
+    		element:		$(element),
+    		description: 	$(element).children('span').eq(0)
+		});
+		setTypography(dict[last-1].element, dict[last-1].description);
+	}, this);
+	
 	$(window).on('resize', function(){
-		setTypography(heading1, heading1DescriptionText);
-		setTypography(heading2, heading2DescriptionText);
-		setTypography(body, bodyDescriptionText);
+		dict.forEach(function(element) {
+			setTypography(element.element, element.description);
+		}, this);
 	});
 
 	function setTypography(element, textElement) {
@@ -90,7 +92,7 @@ jQuery(document).ready(function($){
         var target= $(this.hash),
         	topMargin = target.css('marginTop').replace('px', ''),
         	hedearHeight = $('header').height();
-        $('body,html').animate({'scrollTop': parseInt(target.offset().top - hedearHeight - topMargin)}, 200); 
+        $('body,html').animate({'scrollTop': parseInt(target.offset().top - hedearHeight - topMargin )}, 200); 
     });
     //update selected navigation element
     $(window).on('scroll', function(){
@@ -104,7 +106,7 @@ jQuery(document).ready(function($){
 				topMargin = actual.css('marginTop').replace('px', ''),
 				actualAnchor = $('.cd-main-nav').find('a[href="#'+actual.attr('id')+'"]');
 			
-			if ( ( parseInt(actual.offset().top - $('.cd-main-nav').height() - topMargin )<= $(window).scrollTop() ) && ( parseInt(actual.offset().top +  actualHeight - topMargin )  > $(window).scrollTop() +1 ) ) {
+			if ( ( parseInt(actual.offset().top - $('.cd-main-nav').height() - topMargin  )<= $(window).scrollTop() ) && ( parseInt(actual.offset().top +  actualHeight - topMargin - 200)  > $(window).scrollTop() +1 ) ) {
 				actualAnchor.addClass('selected');
 			}else {
 				actualAnchor.removeClass('selected');

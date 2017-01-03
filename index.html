@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Merriweather' rel='stylesheet' type='text/css'>
-
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style-guide.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
@@ -13,9 +12,9 @@
 	<title>Style Guide | CodyHouse</title>
 </head>
 <body>
-	<header>
-		<div class="cd-logo"><img src="assets/logo.svg" alt="Logo"></div>
-
+	<header >
+		<div class="cd-logo"><a href="#top"><img src="assets/logo.svg" alt="Logo"></a></div>
+		<h2>The Best Of Richmond, VA Since 2005</h2>
 		<nav>
 			<ul class="cd-main-nav">
 				<li><a href="#branding">Branding</a></li>
@@ -26,27 +25,27 @@
 				<li><a href="#form">Form</a></li>
 			</ul> <!-- cd-main-nav -->
 		</nav>
-		
+
 		<a href="assets/assets-download-file.zip" class="cd-download"><span>Download assets</span></a>
 		<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
 	</header>
 
-	<main>
+	<main id="top">
 		<h1>Style Guide 1.0</h1>
 
 		<section id="branding" class="cd-branding">
 			<h2>Branding</h2>
 
 			<ul>
-				<li class="cd-box"><img src="assets/branding/logo-ver-1.jpg" alt="Logo version 1"></li>
-				<li class="cd-box"><img src="assets/branding/logo-ver-2.jpg" alt="Logo version 2"></li>
+				<li class="cd-box"><img src="assets/logo-black.svg" alt="Logo version 1"></li>
+				<li class="cd-box bg-black"><img src="assets/logo.svg" alt="Logo version 2"></li>
 			</ul>
 
 			<ul>
-				<li><img src="assets/branding/touch-icon-1.jpg" alt="Touch Icon 1"></li>
-				<li><img src="assets/branding/touch-icon-2.jpg" alt="Touch Icon 2"></li>
-				<li><img src="assets/branding/favicon-1.jpg" alt="Favicon 1"></li>
-				<li><img src="assets/branding/favicon-2.jpg" alt="Favicon 2"></li>
+				<li><img src="assets/logo-black.svg" alt="Touch Icon 1"></li>
+				<li><img src="assets/logo-black.svg" alt="Touch Icon 2"></li>
+				<li><img src="assets/favicon.ico" alt="Favicon 1"></li>
+				<li><img src="assets/favicon.ico" alt="Favicon 2"></li>
 			</ul> 
 		</section>
 
@@ -73,6 +72,10 @@
 				<li class="cd-box">
 					<div class="cd-color-swatch"></div>
 				</li>
+
+				<li class="cd-box">
+					<div class="cd-color-swatch"></div>
+				</li>
 			</ul>
 		</section>
 
@@ -80,9 +83,14 @@
 			<h2>Typography</h2>
 
 			<div class="cd-box">
-				<h1>Heading, <span></span></h1>
-				<h2>Heading, <span></span></h2>
-				<p>Aa - <span></span>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptate distinctio reprehenderit, autem deleniti ad <a href="#0">voluptatum eaque</a>. Optio ea aperiam nisi distinctio nemo repellat, voluptate fugiat. Quidem neque illum, blanditiis!</p>
+				<h1>H1 Heading, (<span></span>)</h1>
+				<h3 class="author"><a href="#0">Author's Name</a>,&nbsp;(<span></span>)</h3>
+				<h2>H2 Heading, (<span></span>)</h2>
+				<p>Paragraph, (<span></span>). Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptate distinctio reprehenderit, autem deleniti ad <a href="#0">voluptatum eaque</a>. Optio ea aperiam nisi distinctio nemo repellat, voluptate fugiat. Quidem neque illum, blanditiis! Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+				</p> 
+				<blockquote>Blockquote, (<span></span>). Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptate distinctio reprehenderit, autem deleniti ad <a href="#0">voluptatum eaque</a>. Optio ea aperiam nisi distinctio nemo repellat, voluptate fugiat. Quidem neque illum, blanditiis!</blockquote>
+				<cite><a href="#0">Citation (Title of Work)</a>,&nbsp;(<span></span>)</cite><br>
+				<q> Inline Quote, (<span></span>). Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptate distinctio reprehenderit, autem deleniti ad <a href="#0">voluptatum eaque</a>.</q>
 			</div>
 		</section>
 
@@ -102,14 +110,9 @@
 			<h2>Icons</h2>
 
 			<ul class="cd-box">
-				<li class="cd-icon-1"></li>
-				<li class="cd-icon-2"></li>
-				<li class="cd-icon-3"></li>
-				<li class="cd-icon-4"></li>
-				<li class="cd-icon-5"></li>
-				<li class="cd-icon-6"></li>
-				<li class="cd-icon-7"></li>
-				<li class="cd-icon-8"></li>
+				<li><i class="fa fa-facebook-official" ></i></li>
+				<li><i class="fa fa-google-plus-official fa-lg fa-spin"></i></li>
+				<li><i class="fa fa-spinner fa-spin"></i></li>
 			</ul>
 		</section>
 
