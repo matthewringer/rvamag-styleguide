@@ -2436,13 +2436,14 @@ h1 {
   font-size: 2.4rem;
   font-weight: 800;
   line-height: 1.2;
-  margin: 0 0 .4em; }
+  margin: 0 0 .4em;
+  padding: 7pt 5pt; }
   @media only screen and (min-width: 768px) {
     h1 {
       font-size: 3.2rem; } }
   @media only screen and (min-width: 1024px) {
     h1 {
-      font-size: 4rem; } }
+      font-size: 5rem; } }
 
 h2 {
   font-weight: 800;
@@ -2598,10 +2599,31 @@ xIcons
 -------------------------------- */
 .cd-icons li {
   /* icons size */
-  width: 32px;
-  height: 32px; }
-  .cd-icons li i:hover {
-    color: #3b5998; }
+  width: 80px;
+  height: 80px; }
+
+.social-buttons li {
+  position: relative;
+  color: #ffffff;
+  border-radius: 50px; }
+  .social-buttons li.btn-facebook {
+    background-color: #3b5998; }
+  .social-buttons li.btn-twitter {
+    background-color: #00aced; }
+  .social-buttons li.btn-tumblr {
+    background: #32506d; }
+  .social-buttons li.btn-youtube {
+    background-color: #bb0000; }
+  .social-buttons li.btn-instagram {
+    background-color: #517fa4; }
+  .social-buttons li i {
+    position: absolute; }
+    .social-buttons li i.fa-facebook, .social-buttons li i.fa-tumblr {
+      top: 25%;
+      left: 33%; }
+    .social-buttons li i.fa-youtube, .social-buttons li i.fa-instagram, .social-buttons li i.fa-twitter {
+      top: 20%;
+      left: 25%; }
 
 /* -------------------------------- 
 
@@ -2716,6 +2738,48 @@ select {
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none; }
+
+/* -------------------------------- 
+
+xLayouts 
+
+-------------------------------- */
+#layouts .cd-box {
+  border: none; }
+
+div.cd-hero-box {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  width: 100vw;
+  margin-bottom: 0px;
+  background-image: url(../img/rva_street_fest.jpg);
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  height: 62.5%; }
+  div.cd-hero-box .title-block {
+    position: absolute;
+    top: 60%;
+    left: 30px; }
+    div.cd-hero-box .title-block h1 {
+      margin-bottom: 5px; }
+    div.cd-hero-box .title-block h3 {
+      margin: 0;
+      max-width: 60%;
+      width: auto; }
+
+div.cd-3up-box li:nth-of-type(1) .cd-3up-box div {
+  max-width: 33%;
+  background-color: #ee1c25; }
+div.cd-3up-box li:nth-of-type(2) .cd-3up-box div {
+  max-width: 33%;
+  background-color: #fff200; }
+div.cd-3up-box li:nth-of-type(3) .cd-3up-box div {
+  max-width: 33%;
+  background-color: #6fce72; }
 
 /* -------------------------------- 
 
@@ -3034,6 +3098,8 @@ section {
     content: '5. '; }
   section:nth-of-type(6) h2::before {
     content: '6. '; }
+  section:nth-of-type(7) h2::before {
+    content: '7. '; }
   @media only screen and (min-width: 768px) {
     section {
       margin: 3em 0 5em; } }
