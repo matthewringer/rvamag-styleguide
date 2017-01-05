@@ -97,8 +97,23 @@ jQuery(document).ready(function($){
     //update selected navigation element
     $(window).on('scroll', function(){
     	updateNavigation();
+		updateHeaderOpacity();
     });
+	function updateHeaderOpacity() {
+		var actual = $('#top'),
+			actualHeight = actual.height(),
+			topMargin = actual.css('marginTop').replace('px', '');
 
+			console.log("update opacity");
+
+		if ( ( parseInt(actual.offset().top +  actualHeight - topMargin - actualHeight * .5 )  < $(window).scrollTop() +1 ) ) {
+				$('header').css('opacity', 1);
+				console.log("darken header");
+			} else {
+				console.log("lighten header");
+				$('header').css('opacity', .6);
+			}
+	}
     function updateNavigation() {
 		contentSections.each(function(){
 			var actual = $(this),

@@ -2323,12 +2323,6 @@
   overflow: visible;
   clip: auto; }
 
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 /* -------------------------------- 
 
 xBackground 
@@ -2360,7 +2354,8 @@ xNavigation
 
 -------------------------------- */
 header {
-  background-color: #0d0d0d; }
+  background-color: #0d0d0d;
+  opacity: .60; }
   header h2 {
     font-style: italic;
     font-weight: 600;
@@ -2368,7 +2363,7 @@ header {
 
 .cd-logo {
   /* logo box style */
-  background-color: #0d0d0d;
+  background-color: transparent;
   width: 100px;
   height: 100px; }
   @media only screen and (min-width: 1024px) {
@@ -2399,6 +2394,9 @@ header {
     /* upper and lower lines */
     background-color: #ffffff; }
 
+.nav-is-visible {
+  opacity: 1; }
+
 .nav-is-visible .cd-nav-trigger span {
   /* hide line in the center on mobile when nav is visible */
   background-color: rgba(255, 255, 255, 0); }
@@ -2408,9 +2406,9 @@ header {
 
 .cd-download {
   /* download button top-right visible on big devices */
-  background-color: #272727; }
+  background-color: transparent; }
   .no-touch .cd-download:hover {
-    background-color: #333333; }
+    background-color: #1a1a1a; }
   .cd-download span {
     /* tooltip */
     background: #fff200;
@@ -2759,88 +2757,124 @@ xLayouts
 #layouts .cd-box {
   border: none; }
 
-.wrapper {
+.fullscreen {
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto; }
-  .wrapper::after {
-    clear: both;
-    content: "";
-    display: block; }
-
-.leaderboard-ad {
-  width: 100%;
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  background: #fff200;
-  height: 180px;
-  margin-bottom: 20pt; }
-
-.title-block {
-  position: relative;
-  top: 700px;
-  left: 30px;
-  max-width: 60%; }
-  .title-block h1 {
-    margin-bottom: 5px; }
-  .title-block h3 {
-    margin: 0;
-    max-width: 60%;
-    width: auto; }
+  margin-right: auto;
+  margin-bottom: 5em; }
 
 .cd-hero-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
   width: 100%;
-  display: table;
-  width: 100%;
-  table-layout: fixed;
   background-image: url(../img/rva_street_fest.jpg);
   background-position: 0% 25%;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  height: 900px; }
+  height: 20em; }
+  .cd-hero-box div.title-block {
+    position: relative;
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+    left: 5%;
+    bottom: 10px;
+    max-width: 90%; }
+    .cd-hero-box div.title-block h1 {
+      display: inline-block;
+      margin-bottom: 5px; }
+    .cd-hero-box div.title-block h3 {
+      display: inline-block;
+      margin: 0;
+      max-width: 80%; }
+  @media only screen and (min-width: 375px) {
+    .cd-hero-box {
+      height: 25em; } }
+  @media only screen and (min-width: 768px) {
+    .cd-hero-box {
+      height: 30em; } }
+  @media only screen and (min-width: 1024px) {
+    .cd-hero-box {
+      height: 40em; }
+      .cd-hero-box h3 {
+        font-size: 2.4rem; } }
+  @media only screen and (min-width: 1600px) {
+    .cd-hero-box {
+      height: 60em; }
+      .cd-hero-box h3 {
+        font-size: 3.8rem; } }
 
-.cd-2x-box {
-  display: table-cell;
-  width: 50%;
-  height: 600px;
-  border: 10px solid red;
-  margin: 10px;
-  width: 100%; }
+.leaderboard-ad {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  background: #fff200;
+  height: 20em;
+  margin-bottom: 20pt; }
 
-#content {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto; }
-  #content::after {
-    clear: both;
-    content: "";
-    display: block; }
-  #content article {
-    background-color: red;
-    display: table-cell;
-    width: 66.66667%; }
-    @media screen and (min-width: 768px) {
-      #content article {
-        display: table-cell;
-        width: 83.33333%; } }
-    @media screen and (min-width: 325px) {
-      #content article {
-        display: table-cell;
-        width: 100%; } }
-  #content aside {
-    background-color: green;
-    display: table-cell;
-    width: 33.33333%; }
-    @media screen and (min-width: 768px) {
-      #content aside {
-        display: table-cell;
-        width: 16.66667%; } }
-    @media screen and (min-width: 325px) {
-      #content aside {
-        display: table-cell;
-        width: 100%; } }
+.cd-gutter-box {
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: hidden; }
+  .cd-gutter-box hr {
+    border-top: 2px solid #e6e6e6; }
+  .cd-gutter-box .section-title {
+    width: 100%;
+    text-align: center; }
+    .cd-gutter-box .section-title h2 {
+      top: -38px;
+      display: inline-block;
+      position: relative;
+      background-color: #ffffff;
+      padding: 0 10px; }
+
+@media only screen and (min-width: 768px) {
+  .cd-3x3-box {
+    float: left;
+    width: 75%; } }
+.cd-3x3-box article {
+  padding: 0 1em 1em 0; }
+  @media only screen and (min-width: 768px) {
+    .cd-3x3-box article {
+      float: left;
+      width: 33.3%; } }
+.cd-3x3-box div.article-image {
+  height: 10em;
+  background-image: url(../img/rva_street_fest.jpg);
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.widesky-sidebar {
+  display: none;
+  overflow: hidden; }
+  @media only screen and (min-width: 768px) {
+    .widesky-sidebar {
+      display: block; } }
+  .widesky-sidebar div.widesky-ad {
+    background-color: #fff200;
+    height: 30em;
+    margin-bottom: 1em; }
+  .widesky-sidebar div.social-buttons {
+    padding: 1em;
+    background-color: #e6e6e6; }
+  .widesky-sidebar ul.social-buttons {
+    border-left: 0.3em solid #0d0d0d; }
+    .widesky-sidebar ul.social-buttons li {
+      height: 55px;
+      width: 55px;
+      margin: 1em; }
+      .widesky-sidebar ul.social-buttons li span {
+        font-weight: 600;
+        font-size: 1.8rem;
+        color: #0d0d0d;
+        position: relative;
+        left: 60px;
+        top: 15px; }
 
 /* -------------------------------- 
 
@@ -2889,7 +2923,7 @@ header {
     top: 22%;
     width: 65%;
     text-align: center; }
-  @media only screen {
+  @media only screen and (min-width: 375px) {
     header h2 {
       width: 50%; } }
   @media only screen and (min-width: 1024px) {
@@ -2898,7 +2932,7 @@ header {
       header::after {
         clear: both;
         content: "";
-        display: block; }
+        display: table; }
       header h2 {
         display: none; } }
 
@@ -2916,7 +2950,7 @@ header {
     -ms-transform: translateX(-50%) translateY(-50%);
     -o-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%); }
-    @media only screen {
+    @media only screen and (min-width: 375px) {
       .cd-logo img {
         top: 50%;
         left: 47%;
@@ -3146,7 +3180,7 @@ section {
   section::after {
     clear: both;
     content: "";
-    display: block; }
+    display: table; }
   section:nth-of-type(1) h2::before {
     content: '1. '; }
   section:nth-of-type(2) h2::before {
@@ -3352,5 +3386,7 @@ section {
     display: none; } }
 .no-csstransitions .cd-select::after {
   display: none; }
+
+/* xLayout section - basic style */
 
 /*# sourceMappingURL=style-guide.css.map */

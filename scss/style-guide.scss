@@ -4,7 +4,9 @@
 
 @import './font-awesome/font-awesome';
 
-@import './neat/neat';
+//$visual-grid: true !default;
+
+//@import './neat/neat';
 
 // color palette - these colors will be the color swatches of the Colors section
 
@@ -87,11 +89,8 @@ xNavigation
 
 header {
 	background-color: $color-black;
-
-	// @include MQ(S) {
-	// 	margin-bottom: 100px;
-	// }
-
+	opacity: .60;
+	
 	h2 {
 		font-style: italic;
 		font-weight: 600;
@@ -101,7 +100,7 @@ header {
 
 .cd-logo {
 	/* logo box style */
-	background-color: $color-black;
+	background-color: transparent;
 	width: 100px;
 	height: 100px;
 
@@ -148,6 +147,10 @@ header {
 	}
 }
 
+.nav-is-visible {
+	opacity: 1;
+}
+
 .nav-is-visible .cd-nav-trigger span {
 	/* hide line in the center on mobile when nav is visible */
 	background-color: rgba($color-white, 0);
@@ -160,10 +163,10 @@ header {
 
 .cd-download {
 	/* download button top-right visible on big devices */
-	background-color: lighten($color-black, 10%);
+	background-color: transparent;
 
 	.no-touch &:hover {
-		background-color: lighten($color-black, 15%);
+		background-color: lighten($color-black, 5%);
 	}
 
 	span {
@@ -183,6 +186,7 @@ header {
 xPage title 
 
 -------------------------------- */
+
 
 main > h1 {
 
@@ -419,8 +423,11 @@ xIcons
 
 .cd-icons li {
 	/* icons size */
+	
+	
 	width: 80px;
 	height: 80px;
+
 }
 
 
@@ -607,85 +614,171 @@ xLayouts
 	border: none;
 }
 
-.wrapper {
-	@include outer-container;
+.fullscreen {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 5em;
 }
 
-.leaderboard-ad {
-	@include fill-parent();
-	@include row(table);
-	background: $color-yellow;
-	height: 180px;
+.cd-hero-box {
+	//-ms-box-orient: horizontal;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
 
-	margin-bottom: 20pt;
-}
+    width: 100%;
+    background-image: url(../img/rva_street_fest.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    height: 20em;
 
-.title-block {
+
+	 div.title-block {
+		//display: block;
 		position: relative;
-		top: 700px;
-		left: 30px;
-		max-width: 60%;
+		-webkit-align-self: flex-end; align-self: flex-end;
+		//top: 12em;
+		left: 5%;
+		bottom: 10px;
+		max-width: 90%;
 		
 		h1 {
+			display: inline-block;
 			margin-bottom: 5px;
 		}
 
 		h3 {
+			display: inline-block;
 			margin: 0;
-			max-width:60%;
-			width: auto;
+			max-width:80%;
+		}
+	}
+
+	@include MQ(XS) {
+		height: 25em;
+	}
+
+	@include MQ(S) {
+		height: 30em;
+	}
+
+	@include MQ(M) {
+		height: 40em;
+		& h3 {
+			font-size: 2.4rem;
+		}
+	}
+
+	@include MQ(L) {
+		height: 60em;
+		& h3 {
+			font-size: 3.8rem;
+		}
+	}
+}
+
+.leaderboard-ad {
+	display: table;
+    width: 100%;
+    table-layout: fixed;
+	background: $color-yellow;
+
+	height: 20em;
+
+	margin-bottom: 20pt;
+}
+
+.cd-gutter-box {
+	//max-width: 1200px;
+    margin-left: 5%;
+    margin-right: 5%;
+	overflow: hidden;
+	
+	& hr {
+		border-top: 2px solid $color-grey;
+	}
+
+	& .section-title 
+	{
+		width: 100%;
+		text-align: center;
+
+		h2 {
+			top: -38px;
+			display: inline-block;
+			position: relative;
+			background-color: $color-white;
+			padding: 0 10px;
+		}
+	}
+}
+
+.cd-3x3-box {
+
+	@include MQ(S) {
+		float: left;
+		width: 75%;
+	}
+
+	& article {
+		padding: 0 1em 1em 0;
+
+		@include MQ(S) {
+			float: left;
+			width: 33.3%;
+		}
+	}
+	
+	& div.article-image {
+			height: 10em;
+			background-image: url(../img/rva_street_fest.jpg);
+			background-position: 0% 25%;
+			background-size: cover;
+			background-repeat: no-repeat;
 		}
 }
 
-.cd-hero-box {
-	@include fill-parent();
-	@include row(table);
-	background-image: url(../img/rva_street_fest.jpg); // best practice?
-	background-position: 0% 25%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: white;
-	height: 900px;
-	//height: 600px / 960px * 100px; // custom math for each screen....
+.widesky-sidebar {
+	display: none;
+
+	@include MQ(S) {
+		display: block;
+	}
+	overflow: hidden;
+	& div.widesky-ad {
+		background-color: $color-yellow;
+		height: 30em;
+		margin-bottom: 1em;
+	}
+	
+	& div.social-buttons {
+		padding: 1em;
+		background-color: $color-grey;
+	}
+	& ul.social-buttons {
+		border-left: .3em solid $color-black;
+
+		& li {
+			    height: 55px;
+    			width: 55px;
+				margin: 1em;
+				span {
+					font-weight: 600;
+					font-size: 1.8rem;
+					color: $color-black;
+					position: relative;
+					left: 60px;
+					top: 15px;
+				}
+		}
+	}
 }
 
-.cd-2x-box {
-	@include span-columns(6);
-	height: 600px;
-	border: 10px solid red;
-	margin: 10px;
-	width: 100%;
-}
-
-
-$medium-screen: 768px;
-$small-screen: 325px;
-
-#content {
-   @include outer-container;
- 
-   article {
-		 background-color: red;
-      @include span-columns(8);
- 
-      @include media($medium-screen) {
-         @include span-columns(10);
-      }
-      @include media($small-screen) {
-         @include span-columns(12); 
-      }
-   }
-   aside {
-		 background-color: green;
-      @include span-columns(4); 
-      @include media($medium-screen) {
-         @include span-columns(2);
-      }
-      @include media($small-screen) {
-         @include span-columns(12);
-      }
-      
-   }
-}
 
 @import '../partials/basic-style';
