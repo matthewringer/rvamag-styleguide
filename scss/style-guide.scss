@@ -4,6 +4,8 @@
 
 @import './font-awesome/font-awesome';
 
+@import './neat/neat';
+
 // color palette - these colors will be the color swatches of the Colors section
 
 $color-black: 	#0d0d0d; // Near Black
@@ -421,6 +423,15 @@ xIcons
 	height: 80px;
 }
 
+
+.icon-scaling li:nth-of-type(4) {
+			width: 90px;
+}
+
+.icon-scaling li:nth-of-type(5) {
+			width: 110px;
+}
+
 .social-buttons li {
 	position: relative;
 	color: $color-white;
@@ -591,29 +602,29 @@ select {
 xLayouts 
 
 -------------------------------- */
+
 #layouts .cd-box {
 	border: none;
 }
 
-div.cd-hero-box {
-	position: absolute;
-	left:0;
-	width: 100%; //fallback
-  width: 100vw;
-	margin-bottom: 0px;
-	background-image: url(../img/rva_street_fest.jpg); // best practice?
-	background-position: 0% 25%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: white;
-	text-shadow: black 0.3em 0.3em 0.3em;
+.wrapper {
+	@include outer-container;
+}
 
-	height: 600px / 960px * 100%; // custom math for each screen....
+.leaderboard-ad {
+	@include fill-parent();
+	@include row(table);
+	background: $color-yellow;
+	height: 180px;
 
-	.title-block {
-		position: absolute;
-		top: 60%;
+	margin-bottom: 20pt;
+}
+
+.title-block {
+		position: relative;
+		top: 700px;
 		left: 30px;
+		max-width: 60%;
 		
 		h1 {
 			margin-bottom: 5px;
@@ -624,46 +635,57 @@ div.cd-hero-box {
 			max-width:60%;
 			width: auto;
 		}
-	
-	}
-
-@include MQ(S) {
-
 }
 
-@include MQ(M) {
-
+.cd-hero-box {
+	@include fill-parent();
+	@include row(table);
+	background-image: url(../img/rva_street_fest.jpg); // best practice?
+	background-position: 0% 25%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white;
+	height: 900px;
+	//height: 600px / 960px * 100px; // custom math for each screen....
 }
 
-@include MQ(L) {
-
+.cd-2x-box {
+	@include span-columns(6);
+	height: 600px;
+	border: 10px solid red;
+	margin: 10px;
+	width: 100%;
 }
 
-}
 
-div.cd-3up-box {
+$medium-screen: 768px;
+$small-screen: 325px;
 
-	li:nth-of-type(1) .cd-3up-box {
-		& div {
-			max-width: 33%;
-			background-color: $color-red;
-		}
-	}
-
-	li:nth-of-type(2) .cd-3up-box {
-		& div {
-			max-width: 33%;
-			background-color: $color-yellow;
-		}
-	}
-
-	li:nth-of-type(3) .cd-3up-box {
-		& div {
-			max-width: 33%;
-			background-color: $color-green;
-		}
-	}
-
+#content {
+   @include outer-container;
+ 
+   article {
+		 background-color: red;
+      @include span-columns(8);
+ 
+      @include media($medium-screen) {
+         @include span-columns(10);
+      }
+      @include media($small-screen) {
+         @include span-columns(12); 
+      }
+   }
+   aside {
+		 background-color: green;
+      @include span-columns(4); 
+      @include media($medium-screen) {
+         @include span-columns(2);
+      }
+      @include media($small-screen) {
+         @include span-columns(12);
+      }
+      
+   }
 }
 
 @import '../partials/basic-style';

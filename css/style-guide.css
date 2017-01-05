@@ -2323,6 +2323,12 @@
   overflow: visible;
   clip: auto; }
 
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 /* -------------------------------- 
 
 xBackground 
@@ -2602,6 +2608,12 @@ xIcons
   width: 80px;
   height: 80px; }
 
+.icon-scaling li:nth-of-type(4) {
+  width: 90px; }
+
+.icon-scaling li:nth-of-type(5) {
+  width: 110px; }
+
 .social-buttons li {
   position: relative;
   color: #ffffff;
@@ -2747,39 +2759,88 @@ xLayouts
 #layouts .cd-box {
   border: none; }
 
-div.cd-hero-box {
-  position: absolute;
-  left: 0;
+.wrapper {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .wrapper::after {
+    clear: both;
+    content: "";
+    display: block; }
+
+.leaderboard-ad {
   width: 100%;
-  width: 100vw;
-  margin-bottom: 0px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  background: #fff200;
+  height: 180px;
+  margin-bottom: 20pt; }
+
+.title-block {
+  position: relative;
+  top: 700px;
+  left: 30px;
+  max-width: 60%; }
+  .title-block h1 {
+    margin-bottom: 5px; }
+  .title-block h3 {
+    margin: 0;
+    max-width: 60%;
+    width: auto; }
+
+.cd-hero-box {
+  width: 100%;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
   background-image: url(../img/rva_street_fest.jpg);
   background-position: 0% 25%;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  text-shadow: black 0.3em 0.3em 0.3em;
-  height: 62.5%; }
-  div.cd-hero-box .title-block {
-    position: absolute;
-    top: 60%;
-    left: 30px; }
-    div.cd-hero-box .title-block h1 {
-      margin-bottom: 5px; }
-    div.cd-hero-box .title-block h3 {
-      margin: 0;
-      max-width: 60%;
-      width: auto; }
+  height: 900px; }
 
-div.cd-3up-box li:nth-of-type(1) .cd-3up-box div {
-  max-width: 33%;
-  background-color: #ee1c25; }
-div.cd-3up-box li:nth-of-type(2) .cd-3up-box div {
-  max-width: 33%;
-  background-color: #fff200; }
-div.cd-3up-box li:nth-of-type(3) .cd-3up-box div {
-  max-width: 33%;
-  background-color: #6fce72; }
+.cd-2x-box {
+  display: table-cell;
+  width: 50%;
+  height: 600px;
+  border: 10px solid red;
+  margin: 10px;
+  width: 100%; }
+
+#content {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  #content::after {
+    clear: both;
+    content: "";
+    display: block; }
+  #content article {
+    background-color: red;
+    display: table-cell;
+    width: 66.66667%; }
+    @media screen and (min-width: 768px) {
+      #content article {
+        display: table-cell;
+        width: 83.33333%; } }
+    @media screen and (min-width: 325px) {
+      #content article {
+        display: table-cell;
+        width: 100%; } }
+  #content aside {
+    background-color: green;
+    display: table-cell;
+    width: 33.33333%; }
+    @media screen and (min-width: 768px) {
+      #content aside {
+        display: table-cell;
+        width: 16.66667%; } }
+    @media screen and (min-width: 325px) {
+      #content aside {
+        display: table-cell;
+        width: 100%; } }
 
 /* -------------------------------- 
 
@@ -2837,7 +2898,7 @@ header {
       header::after {
         clear: both;
         content: "";
-        display: table; }
+        display: block; }
       header h2 {
         display: none; } }
 
@@ -3085,7 +3146,7 @@ section {
   section::after {
     clear: both;
     content: "";
-    display: table; }
+    display: block; }
   section:nth-of-type(1) h2::before {
     content: '1. '; }
   section:nth-of-type(2) h2::before {
