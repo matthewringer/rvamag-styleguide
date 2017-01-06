@@ -638,9 +638,10 @@ xLayouts
     color: white;
     height: 20em;
 
+	margin-bottom: 2em;
 
 	 div.title-block {
-		//display: block;
+		text-align: left;
 		position: relative;
 		-webkit-align-self: flex-end; align-self: flex-end;
 		//top: 12em;
@@ -704,7 +705,7 @@ xLayouts
 		border-top: 2px solid $color-grey;
 	}
 
-	& .section-title 
+	.section-title 
 	{
 		width: 100%;
 		text-align: center;
@@ -716,6 +717,42 @@ xLayouts
 			background-color: $color-white;
 			padding: 0 10px;
 		}
+	}
+}
+
+.cd-2x1-box {
+	
+	@include MQ(S) {
+		float: left;
+		width: 100%;
+	}
+
+	& article:nth-of-type(1)  {
+		padding: 0 .5em 2em 0;
+	}
+
+	& article:nth-of-type(2) {
+		padding: 0 0 2em .5em;
+	}
+
+	& article {
+
+		@include MQ(S) {
+			float: left;
+			width: 50%;
+		}
+	}
+	
+	& div.article-image {
+			height: 10em;
+			background-image: url(../img/rva_street_fest.jpg);
+			background-position: 0% 25%;
+			background-size: cover;
+			background-repeat: no-repeat;
+	}
+
+	h2 {
+		top: 0 !important;
 	}
 }
 
@@ -741,7 +778,7 @@ xLayouts
 			background-position: 0% 25%;
 			background-size: cover;
 			background-repeat: no-repeat;
-		}
+	}
 }
 
 .widesky-sidebar {

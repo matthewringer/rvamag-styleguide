@@ -2776,8 +2776,10 @@ xLayouts
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  height: 20em; }
+  height: 20em;
+  margin-bottom: 2em; }
   .cd-hero-box div.title-block {
+    text-align: left;
     position: relative;
     -webkit-align-self: flex-end;
     align-self: flex-end;
@@ -2831,6 +2833,27 @@ xLayouts
       position: relative;
       background-color: #ffffff;
       padding: 0 10px; }
+
+@media only screen and (min-width: 768px) {
+  .cd-2x1-box {
+    float: left;
+    width: 100%; } }
+.cd-2x1-box article:nth-of-type(1) {
+  padding: 0 .5em 2em 0; }
+.cd-2x1-box article:nth-of-type(2) {
+  padding: 0 0 2em .5em; }
+@media only screen and (min-width: 768px) {
+  .cd-2x1-box article {
+    float: left;
+    width: 50%; } }
+.cd-2x1-box div.article-image {
+  height: 10em;
+  background-image: url(../img/rva_street_fest.jpg);
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+.cd-2x1-box h2 {
+  top: 0 !important; }
 
 @media only screen and (min-width: 768px) {
   .cd-3x3-box {
