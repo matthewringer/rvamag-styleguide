@@ -101,8 +101,14 @@ header {
 .cd-logo {
 	/* logo box style */
 	background-color: transparent;
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
+	left:0;
+
+	@include MQ(S) {
+		width: 100px;
+		height: 100px;
+	}
 
 	@include MQ(M) {
 		width: 130px;
@@ -618,7 +624,6 @@ xLayouts
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-	margin-bottom: 5em;
 }
 
 .cd-hero-box {
@@ -638,8 +643,6 @@ xLayouts
     color: white;
     height: 20em;
 
-	margin-bottom: 2em;
-
 	 div.title-block {
 		text-align: left;
 		position: relative;
@@ -651,10 +654,10 @@ xLayouts
 		
 		h1 {
 			display: inline-block;
-			margin-bottom: 5px;
 		}
 
 		h3 {
+			margin-top: 5px;
 			display: inline-block;
 			margin: 0;
 			max-width:80%;
@@ -685,14 +688,17 @@ xLayouts
 }
 
 .leaderboard-ad {
+	text-align: center;
 	display: table;
     width: 100%;
     table-layout: fixed;
 	background: $color-yellow;
-
 	height: 20em;
 
-	margin-bottom: 20pt;
+	& p {
+		//position: absolute;
+		padding-top: 5%;
+	}
 }
 
 .cd-gutter-box {
@@ -700,18 +706,17 @@ xLayouts
     margin-left: 5%;
     margin-right: 5%;
 	overflow: hidden;
-	
-	& hr {
-		border-top: 2px solid $color-grey;
-	}
 
 	.section-title 
 	{
 		width: 100%;
 		text-align: center;
+		border-top: 2px solid $color-grey;
+		margin-top: 2em;
+		min-height: 61px;
 
 		h2 {
-			top: -38px;
+			top: -29px;
 			display: inline-block;
 			position: relative;
 			background-color: $color-white;
@@ -750,10 +755,6 @@ xLayouts
 			background-size: cover;
 			background-repeat: no-repeat;
 	}
-
-	h2 {
-		top: 0 !important;
-	}
 }
 
 .cd-3x3-box {
@@ -787,14 +788,17 @@ xLayouts
 	@include MQ(S) {
 		display: block;
 	}
+
 	overflow: hidden;
 	& div.widesky-ad {
 		background-color: $color-yellow;
 		height: 30em;
-		margin-bottom: 1em;
+		padding-top: 50%;
+		text-align: center;
 	}
 	
 	& div.social-buttons {
+		margin-top: 1em;
 		padding: 1em;
 		background-color: $color-grey;
 	}
@@ -815,6 +819,78 @@ xLayouts
 				}
 		}
 	}
+}
+
+.ad-bigboy-block {
+
+	@include MQ(S) {
+		float: left;
+		width: 100%;
+	}
+
+	& div.ad-big-boy::before {
+		content:"advertizement";
+		position: relative; 
+		top: -10px;
+	}
+
+	.ad-container {
+		width: 100%;
+		padding-top: 89.5%; /* 1:.896 Aspect Ratio */
+		position: relative; /* If you want text inside of it */
+		//89.6
+		//1.14
+	}
+
+	& div.ad-big-boy {
+		text-align: center;
+		
+		@include MQ(S) {
+			width: 25%;
+			float: left;
+		}
+
+		& p {
+			background-color: $color-yellow;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			padding-top: 10%;
+		}
+	}
+
+	& div.ad-big-boy:nth-of-type(2) {
+		display: none;
+	}
+
+	& div.ad-big-boy:nth-of-type(3) {
+		display: none;
+	}
+
+	& div.ad-big-boy:nth-of-type(4) {
+		display: none;
+	}
+
+	@include MQ(S) {
+		& div.ad-big-boy { 
+			padding: 0 .2em 2em .2em; 
+			display: block !important;
+		}
+
+		& div.ad-big-boy:nth-of-type(1)  {
+			padding: 0 .2em 2em 0;
+		}
+		
+		& div.ad-big-boy:nth-of-type(4)  {
+			padding: 0 0 2em .2em;
+		}
+	}
+}
+
+.cd-vspace-box {
+	height: 2em;
 }
 
 

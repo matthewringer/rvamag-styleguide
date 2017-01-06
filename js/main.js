@@ -108,9 +108,7 @@ jQuery(document).ready(function($){
 
 		if ( ( parseInt(actual.offset().top +  actualHeight - topMargin - actualHeight * .5 )  < $(window).scrollTop() +1 ) ) {
 				$('header').css('opacity', 1);
-				console.log("darken header");
 			} else {
-				console.log("lighten header");
 				$('header').css('opacity', .6);
 			}
 	}
@@ -129,3 +127,34 @@ jQuery(document).ready(function($){
 		});
 	}
 });
+
+
+/*******************
+	ad aspect ratios
+********************/
+
+	var type_elements = $('.ad-text').toArray();
+	var dict = [];
+
+	type_elements.forEach(function(element) {
+		var last = dict.push({
+    		element:		$(element).parent().eq(0),
+    		description: 	$(element).find( "span" ).eq(0)  //.children('span').eq(0)
+		});
+		setAdRatios(dict[last-1].element, dict[last-1].description);
+	}, this);
+	
+	$(window).on('resize', function(){
+		dict.forEach(function(element) {
+			setAdRatios(element.element, element.description);
+		}, this);
+	});
+
+	function setAdRatios(element, textElement) {
+		console.log(textElement.text());
+
+		var height = element.css('height'),
+			width = element.css('width');
+
+		textElement.text('H: '+height + ' x '+ 'W: '+width);
+	}

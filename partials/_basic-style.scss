@@ -81,14 +81,9 @@ header {
 		position: absolute;
 		display: block;
 		top: 50%;
-		left: 78%;
+		left: 56%;
+		max-width: 80%;
 		@include transform(translateX(-50%) translateY(-50%));
-		
-		@include MQ(XS) {
-			top: 50%;
-			left: 47%;
-			max-width: 80%;
-		}
 
 		@include MQ(S) {
 			top: 50%;
@@ -672,63 +667,3 @@ section {
 	display: none;
 }
 
-/* xLayout section - basic style */
-
-// .wrapper {
-// 	@include outer-container(100%);
-// }
-
-// .title-block {
-// 		position: relative;
-// 		top: 700px;
-// 		left: 30px;
-// 		max-width: 60%;
-		
-// 		h1 {
-// 			margin-bottom: 5px;
-// 		}
-
-// 		h3 {
-// 			margin: 0;
-// 			max-width:60%;
-// 			width: auto;
-// 		}
-// }
-
-// .cd-hero-box {
-// 	@include fill-parent();
-// 	@include row(table);
-// 	background-image: url(../img/rva_street_fest.jpg); // best practice?
-// 	background-position: 0% 25%;
-// 	background-size: cover;
-// 	background-repeat: no-repeat;
-// 	color: white;
-// 	height: 900px;
-// 	//height: 600px / 960px * 100px; // custom math for each screen....
-// }
-
-// .leaderboard-ad {
-// 	@include fill-parent();
-// 	@include row(table);
-// 	background: $color-yellow;
-// 	height: 20em;
-
-// 	margin-bottom: 20pt;
-// }
-
-
-// #neat-content {
-// 	@include outer-container;
-// 	height: 30em;
-
-// 	article {
-// 		background-color: yellow;
-// 		border: 5px solid red;
-// 		@include span-columns(3);
-// 	}
-
-// 	aside {
-// 		background-color: green;
-// 		@include span-columns(9);
-// 	}
-// }
