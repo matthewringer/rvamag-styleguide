@@ -87,7 +87,7 @@ jQuery(document).ready(function($){
 		$('header').toggleClass('nav-is-visible');
 	});
 	//smooth scroll to the selected section
-	$('.cd-main-nav a[href^="#"]').on('click', function(event){
+	$('.main-nav-js-ref a[href^="#"]').on('click', function(event){
         event.preventDefault();
         $('header').removeClass('nav-is-visible');
         var target= $(this.hash),
@@ -118,12 +118,12 @@ jQuery(document).ready(function($){
 				topMargin = actual.css('marginTop').replace('px', ''),
 				actualAnchor = $('#main-nav').find('a[href="#'+actual.attr('id')+'"]');
 
-				if(actual[0].id === 'layouts') {
-					console.log( 
-						"(" + parseInt(actual.offset().top - $('#main-nav').height() - topMargin  )  + 
-						" ) <= " + parseInt($(window).scrollTop()) + " && ( " + parseInt(actual.offset().top +  actualHeight - topMargin - 200) + " > " +  parseInt($(window).scrollTop() +1) + ")"
-						);
-				}
+				// if(actual[0].id === 'layouts') {
+				// 	console.log( 
+				// 		"(" + parseInt(actual.offset().top - $('#main-nav').height() - topMargin  )  + 
+				// 		" ) <= " + parseInt($(window).scrollTop()) + " && ( " + parseInt(actual.offset().top +  actualHeight - topMargin - 200) + " > " +  parseInt($(window).scrollTop() +1) + ")"
+				// 		);
+				// }
 
 			if ( ( parseInt(actual.offset().top - $('#main-nav').height() - topMargin  ) <= $(window).scrollTop() ) && ( parseInt(actual.offset().top +  actualHeight - topMargin - 200)  > $(window).scrollTop() +1 ) ) {
 				actualAnchor.addClass('selected');
