@@ -337,6 +337,7 @@ p {
 	font-size: 1.4rem;
 	line-height: 1.4;
 	color: lighten($color-black, 25%);
+	margin: 1em 0;
 
 	a {
 		color: darken($color-yellow, 5%);
@@ -409,6 +410,7 @@ xButtons
 
 	@include MQ(S) {
 		font-size: 1.6rem;
+		padding: 7pt 10pt;
 	}
 }
 
@@ -425,8 +427,7 @@ xIcons
 
 .cd-icons li {
 	/* icons size */
-	
-	
+
 	width: 80px;
 	height: 80px;
 
@@ -466,19 +467,20 @@ xIcons
 	}
 
 	border-radius: 50px;
-		& i {
-			position: absolute;
 
-			&.fa-facebook, &.fa-tumblr {
-				top: 25%;
-				left: 33%;
-			}
+	& i {
+		position: absolute;
 
-			&.fa-youtube, &.fa-instagram, &.fa-twitter {
-				top: 20%;
-				left: 25%
-			}
+		&.fa-facebook, &.fa-tumblr {
+			top: 25%;
+			left: 33%;
 		}
+
+		&.fa-youtube, &.fa-instagram, &.fa-twitter {
+			top: 20%;
+			left: 25%
+		}
+	}
 }
 
 /* -------------------------------- 
@@ -503,6 +505,7 @@ input[type=text], select {
 }
 
 input[type=text] {
+	vertical-align: top; // make align with buttons
 	padding: .6em 1em;
 	box-shadow: inset 1px 1px rgba(#000, .03);
 
@@ -629,8 +632,10 @@ xLayouts
 }
 
 #demo-header {
+	opacity: .6 !important;
 	position: relative;
 	z-index: 0;
+	align-self: flex-start;
 }
 
 .cd-hero-box {
@@ -640,6 +645,7 @@ xLayouts
 	display: -moz-flex;
 	display: -webkit-flex;
 	display: flex;
+	flex-wrap: wrap;
 
     width: 100%;
     background-image: url(../img/rva_street_fest.jpg);
@@ -702,7 +708,6 @@ xLayouts
 	height: 20em;
 
 	& p {
-		//position: absolute;
 		padding-top: 5%;
 	}
 }
@@ -722,12 +727,17 @@ xLayouts
 		min-height: 61px;
 
 		h2 {
-			top: -29px;
+			top: -25px;
 			display: inline-block;
 			position: relative;
 			background-color: $color-white;
 			padding: 0 10px;
+
+			@include MQ(S) {
+				top: -30px;
+			}
 		}
+
 	}
 }
 
@@ -766,11 +776,6 @@ xLayouts
 
 .cd-3x3-box {
 
-	@include MQ(S) {
-		float: left;
-		width: 75%;
-	}
-
 	& article {
 		padding: 0 0 1em 0;
 
@@ -790,6 +795,15 @@ xLayouts
 	}
 }
 
+.cd-sidebar {
+
+	@include MQ(S) {
+		float: left;
+		width: 75%;
+	}
+
+}
+
 .widesky-sidebar {
 	display: none;
 
@@ -803,6 +817,10 @@ xLayouts
 		height: 30em;
 		padding-top: 50%;
 		text-align: center;
+
+		p {
+			width: 100%;
+		}
 	}
 	
 	& div.social-buttons {
@@ -810,6 +828,7 @@ xLayouts
 		padding: 1em;
 		background-color: $color-grey;
 	}
+
 	& ul.social-buttons {
 		border-left: .3em solid $color-black;
 
@@ -826,6 +845,17 @@ xLayouts
 					top: 15px;
 				}
 		}
+	}
+}
+
+.ad-text {
+	
+	@include MQ(S) {
+		font-size: 1rem;
+	}
+
+	@include MQ(M) {
+		font-size: initial;
 	}
 }
 
@@ -846,8 +876,6 @@ xLayouts
 		width: 100%;
 		padding-top: 89.5%; /* 1:.896 Aspect Ratio */
 		position: relative; /* If you want text inside of it */
-		//89.6
-		//1.14
 	}
 
 	& div.ad-big-boy {
@@ -888,11 +916,11 @@ xLayouts
 		}
 
 		& div.ad-big-boy:nth-of-type(1)  {
-			padding: 0 .2em 2em 0;
+			//padding-left: 0;
 		}
 		
 		& div.ad-big-boy:nth-of-type(4)  {
-			padding: 0 0 2em .2em;
+			//padding-right: 0;
 		}
 	}
 }
@@ -900,6 +928,140 @@ xLayouts
 .cd-vspace-box {
 	height: 2em;
 }
+
+.cd-subscribe-box {
+	//padding: 0 .2em 2em .2em; 
+	text-align: center;
+
+	& input {
+		margin-bottom: 1em;
+	}
+
+	@include MQ(S) {
+		float: left;
+		width: 50%;
+
+		& input {
+			margin-bottom: 0;
+		}
+	}
+
+	form {
+		margin: 0 auto;
+		background-color: $color-grey;
+		padding: 15pt 0;
+		//margin: 1em 0;
+	}
+}
+
+.cd-subscribe-block {
+
+	& div.cd-subscribe-box:nth-of-type(2n) {
+		form {
+			margin: 2em .2em 2em 0;
+		}
+
+		@include MQ(S){
+			padding-right: 1em;
+		}
+	}
+
+	& div.cd-subscribe-box:nth-of-type(3n) {
+		form {
+			margin: 0 0 2em .2em;
+		}
+
+		@include MQ(S){
+			padding-left: 1em;
+		}
+	}
+}
+
+	.ar-scale-box {
+		width: 100%;
+		padding-top: 50%; /* 1:1 Aspect Ratio */
+		position: relative; /* If you want text inside of it */
+		overflow:hidden;
+	}
+
+	img.ar-content {
+		position: absolute;
+		top: -25%;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: auto;
+	}
+
+	.article {
+		h1, h2, h3, blockquote {
+			text-align: center;
+			background-color: $color-white;
+			color: $color-black;
+		}
+
+		h2 {
+			margin: .5em 0; 
+			font-weight: 300;
+			font-size: 2.6rem;
+		}
+
+		h3 {
+			font-weight: 900;
+		}
+
+		hr {
+			width: 70%;
+		}
+		
+		@include MQ(S) {
+			& article {
+				width: 75%;
+				float: left;
+				padding-right: 1em;
+			}
+
+			& aside {
+				text-align: center;
+				margin-top: 1em;
+			}
+			& aside::before {
+				content: "Advertizement";
+				padding-top: 1em;
+			}
+
+			& p, blockquote { 
+				float: left;
+			}
+		}
+		.tags{
+			font-weight: 900;
+			text-transform: uppercase;
+			span {
+				font-weight: initial;
+			}
+		}
+
+		.cd-icons {
+			border: none;
+			text-align: center;
+			li { 
+				margin: .1em;
+				height: 55px;
+    			width: 55px;
+				span {
+					font-weight: 600;
+					font-size: 1.8rem;
+					color: $color-black;
+					position: relative;
+					left: 60px;
+					top: 15px;
+				}
+			}
+		}
+	}
+
 
 
 @import '../partials/basic-style';

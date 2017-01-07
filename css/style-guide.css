@@ -2545,7 +2545,8 @@ q:after {
 p {
   font-size: 1.4rem;
   line-height: 1.4;
-  color: #4d4d4d; }
+  color: #4d4d4d;
+  margin: 1em 0; }
   p a {
     color: #e6da00;
     text-decoration: underline; }
@@ -2595,7 +2596,8 @@ xButtons
       background: #fff200; }
   @media only screen and (min-width: 768px) {
     .btn {
-      font-size: 1.6rem; } }
+      font-size: 1.6rem;
+      padding: 7pt 10pt; } }
 
 .cd-buttons .cd-box:nth-of-type(2) span {
   /* CSS class name color */
@@ -2656,6 +2658,7 @@ input[type=text], select {
     outline: none; }
 
 input[type=text] {
+  vertical-align: top;
   padding: .6em 1em;
   box-shadow: inset 1px 1px rgba(0, 0, 0, 0.03); }
   input[type=text].success {
@@ -2773,8 +2776,10 @@ xLayouts
   margin-right: auto; }
 
 #demo-header {
+  opacity: .6 !important;
   position: relative;
-  z-index: 0; }
+  z-index: 0;
+  align-self: flex-start; }
 
 .cd-hero-box {
   display: -webkit-box;
@@ -2783,6 +2788,7 @@ xLayouts
   display: -moz-flex;
   display: -webkit-flex;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   background-image: url(../img/rva_street_fest.jpg);
   background-position: 0% 25%;
@@ -2843,11 +2849,14 @@ xLayouts
     margin-top: 2em;
     min-height: 61px; }
     .cd-gutter-box .section-title h2 {
-      top: -29px;
+      top: -25px;
       display: inline-block;
       position: relative;
       background-color: #ffffff;
       padding: 0 10px; }
+      @media only screen and (min-width: 768px) {
+        .cd-gutter-box .section-title h2 {
+          top: -30px; } }
 
 .cd-2x1-box article {
   padding: 0 0 2em 0; }
@@ -2869,10 +2878,6 @@ xLayouts
   background-size: cover;
   background-repeat: no-repeat; }
 
-@media only screen and (min-width: 768px) {
-  .cd-3x3-box {
-    float: left;
-    width: 75%; } }
 .cd-3x3-box article {
   padding: 0 0 1em 0; }
   @media only screen and (min-width: 768px) {
@@ -2887,6 +2892,11 @@ xLayouts
   background-size: cover;
   background-repeat: no-repeat; }
 
+@media only screen and (min-width: 768px) {
+  .cd-sidebar {
+    float: left;
+    width: 75%; } }
+
 .widesky-sidebar {
   display: none;
   overflow: hidden; }
@@ -2898,6 +2908,8 @@ xLayouts
     height: 30em;
     padding-top: 50%;
     text-align: center; }
+    .widesky-sidebar div.widesky-ad p {
+      width: 100%; }
   .widesky-sidebar div.social-buttons {
     margin-top: 1em;
     padding: 1em;
@@ -2915,6 +2927,13 @@ xLayouts
         position: relative;
         left: 60px;
         top: 15px; }
+
+@media only screen and (min-width: 768px) {
+  .ad-text {
+    font-size: 1rem; } }
+@media only screen and (min-width: 1024px) {
+  .ad-text {
+    font-size: initial; } }
 
 @media only screen and (min-width: 768px) {
   .ad-bigboy-block {
@@ -2953,14 +2972,98 @@ xLayouts
 @media only screen and (min-width: 768px) {
   .ad-bigboy-block div.ad-big-boy {
     padding: 0 .2em 2em .2em;
-    display: block !important; }
-  .ad-bigboy-block div.ad-big-boy:nth-of-type(1) {
-    padding: 0 .2em 2em 0; }
-  .ad-bigboy-block div.ad-big-boy:nth-of-type(4) {
-    padding: 0 0 2em .2em; } }
+    display: block !important; } }
 
 .cd-vspace-box {
   height: 2em; }
+
+.cd-subscribe-box {
+  text-align: center; }
+  .cd-subscribe-box input {
+    margin-bottom: 1em; }
+  @media only screen and (min-width: 768px) {
+    .cd-subscribe-box {
+      float: left;
+      width: 50%; }
+      .cd-subscribe-box input {
+        margin-bottom: 0; } }
+  .cd-subscribe-box form {
+    margin: 0 auto;
+    background-color: #e6e6e6;
+    padding: 15pt 0; }
+
+.cd-subscribe-block div.cd-subscribe-box:nth-of-type(2n) form {
+  margin: 2em .2em 2em 0; }
+@media only screen and (min-width: 768px) {
+  .cd-subscribe-block div.cd-subscribe-box:nth-of-type(2n) {
+    padding-right: 1em; } }
+.cd-subscribe-block div.cd-subscribe-box:nth-of-type(3n) form {
+  margin: 0 0 2em .2em; }
+@media only screen and (min-width: 768px) {
+  .cd-subscribe-block div.cd-subscribe-box:nth-of-type(3n) {
+    padding-left: 1em; } }
+
+.ar-scale-box {
+  width: 100%;
+  padding-top: 50%;
+  /* 1:1 Aspect Ratio */
+  position: relative;
+  /* If you want text inside of it */
+  overflow: hidden; }
+
+img.ar-content {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto; }
+
+.article h1, .article h2, .article h3, .article blockquote {
+  text-align: center;
+  background-color: #ffffff;
+  color: #0d0d0d; }
+.article h2 {
+  margin: .5em 0;
+  font-weight: 300;
+  font-size: 2.6rem; }
+.article h3 {
+  font-weight: 900; }
+.article hr {
+  width: 70%; }
+@media only screen and (min-width: 768px) {
+  .article article {
+    width: 75%;
+    float: left;
+    padding-right: 1em; }
+  .article aside {
+    text-align: center;
+    margin-top: 1em; }
+  .article aside::before {
+    content: "Advertizement";
+    padding-top: 1em; }
+  .article p, .article blockquote {
+    float: left; } }
+.article .tags {
+  font-weight: 900;
+  text-transform: uppercase; }
+  .article .tags span {
+    font-weight: initial; }
+.article .cd-icons {
+  border: none;
+  text-align: center; }
+  .article .cd-icons li {
+    margin: .1em;
+    height: 55px;
+    width: 55px; }
+    .article .cd-icons li span {
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #0d0d0d;
+      position: relative;
+      left: 60px;
+      top: 15px; }
 
 /* -------------------------------- 
 
