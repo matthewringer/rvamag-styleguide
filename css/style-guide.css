@@ -2759,6 +2759,11 @@ select {
 xLayouts 
 
 -------------------------------- */
+.cd-layouts {
+  width: 48%;
+  float: none;
+  margin: 0 4% 0 0; }
+
 #layouts .cd-box {
   border: none; }
 
@@ -2844,18 +2849,19 @@ xLayouts
       background-color: #ffffff;
       padding: 0 10px; }
 
+.cd-2x1-box article {
+  padding: 0 0 2em 0; }
 @media only screen and (min-width: 768px) {
   .cd-2x1-box {
     float: left;
-    width: 100%; } }
-.cd-2x1-box article:nth-of-type(1) {
-  padding: 0 .5em 2em 0; }
-.cd-2x1-box article:nth-of-type(2) {
-  padding: 0 0 2em .5em; }
-@media only screen and (min-width: 768px) {
-  .cd-2x1-box article {
-    float: left;
-    width: 50%; } }
+    width: 100%; }
+    .cd-2x1-box article:nth-of-type(1) {
+      padding: 0 .5em 2em 0; }
+    .cd-2x1-box article:nth-of-type(2) {
+      padding: 0 0 2em .5em; }
+    .cd-2x1-box article {
+      float: left;
+      width: 50%; } }
 .cd-2x1-box div.article-image {
   height: 10em;
   background-image: url(../img/rva_street_fest.jpg);
@@ -2868,11 +2874,12 @@ xLayouts
     float: left;
     width: 75%; } }
 .cd-3x3-box article {
-  padding: 0 1em 1em 0; }
+  padding: 0 0 1em 0; }
   @media only screen and (min-width: 768px) {
     .cd-3x3-box article {
       float: left;
-      width: 33.3%; } }
+      width: 33.3%;
+      padding-right: 1em; } }
 .cd-3x3-box div.article-image {
   height: 10em;
   background-image: url(../img/rva_street_fest.jpg);
@@ -3001,7 +3008,8 @@ header {
   display: -webkit-flex;
   display: flex; }
   header nav {
-    display: inline-block; }
+    display: inline-block;
+    margin: 0 auto; }
   header h2 {
     -webkit-align-self: flex-end;
     align-self: flex-end;
@@ -3240,7 +3248,7 @@ main {
   width: 90%;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 50px 0; }
+  padding: 50px 0 0 0; }
   main > h1 {
     text-align: center;
     margin: 3em 0; }
@@ -3250,7 +3258,7 @@ main {
   @media only screen and (min-width: 1600px) {
     main {
       max-width: none;
-      padding: 120px 0 50px; }
+      padding: 120px 0 0 0; }
       main > h1 {
         position: fixed;
         top: 0;
@@ -3291,7 +3299,9 @@ section {
       float: left;
       margin: 0 4% 4em 0; }
       section:nth-of-type(2n) {
-        margin-right: 0; } }
+        margin-right: 0; }
+      section:nth-of-type(7) {
+        margin-bottom: 1.4em; } }
 
 /* xBranding section - basic style */
 .cd-branding .cd-box {

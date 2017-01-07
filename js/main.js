@@ -81,6 +81,7 @@ jQuery(document).ready(function($){
 		main  navigation
 	********************/
 	var contentSections = $('main section');
+	contentSections.push($('#layouts').eq(0));
 	//open navigation on mobile
 	$('.cd-nav-trigger').on('click', function(){
 		$('header').toggleClass('nav-is-visible');
@@ -104,8 +105,6 @@ jQuery(document).ready(function($){
 			actualHeight = actual.height(),
 			topMargin = actual.css('marginTop').replace('px', '');
 
-			console.log("update opacity");
-
 		if ( ( parseInt(actual.offset().top +  actualHeight - topMargin - actualHeight * .5 )  < $(window).scrollTop() +1 ) ) {
 				$('header').css('opacity', 1);
 			} else {
@@ -117,11 +116,18 @@ jQuery(document).ready(function($){
 			var actual = $(this),
 				actualHeight = actual.height(),
 				topMargin = actual.css('marginTop').replace('px', ''),
-				actualAnchor = $('.cd-main-nav').find('a[href="#'+actual.attr('id')+'"]');
-			
-			if ( ( parseInt(actual.offset().top - $('.cd-main-nav').height() - topMargin  )<= $(window).scrollTop() ) && ( parseInt(actual.offset().top +  actualHeight - topMargin - 200)  > $(window).scrollTop() +1 ) ) {
+				actualAnchor = $('#main-nav').find('a[href="#'+actual.attr('id')+'"]');
+
+				if(actual[0].id === 'layouts') {
+					console.log( 
+						"(" + parseInt(actual.offset().top - $('#main-nav').height() - topMargin  )  + 
+						" ) <= " + parseInt($(window).scrollTop()) + " && ( " + parseInt(actual.offset().top +  actualHeight - topMargin - 200) + " > " +  parseInt($(window).scrollTop() +1) + ")"
+						);
+				}
+
+			if ( ( parseInt(actual.offset().top - $('#main-nav').height() - topMargin  ) <= $(window).scrollTop() ) && ( parseInt(actual.offset().top +  actualHeight - topMargin - 200)  > $(window).scrollTop() +1 ) ) {
 				actualAnchor.addClass('selected');
-			}else {
+			} else {
 				actualAnchor.removeClass('selected');
 			}
 		});

@@ -53,6 +53,7 @@ header {
 
 	nav {
 		display: inline-block;
+		margin: 0 auto;
 	}
 
 	h2 {
@@ -299,7 +300,7 @@ main {
 	width: 90%;
 	max-width: $M;
 	margin: 0 auto;
-	padding: 50px 0;
+	padding: 50px 0 0 0;
 
 	> h1 {
 		text-align: center;
@@ -312,7 +313,7 @@ main {
 
 	@include MQ(L) {
 		max-width: none;
-		padding: 120px 0 50px;
+		padding: 120px 0 0 0;
 
 		> h1 {
 			position: fixed;
@@ -370,6 +371,10 @@ section {
 
 		&:nth-of-type(2n) {
 			margin-right: 0;
+		}
+
+		&:nth-of-type(7) {
+			margin-bottom: 1.4em;
 		}
 	}
 }
