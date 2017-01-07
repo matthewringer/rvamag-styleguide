@@ -44,21 +44,31 @@ header {
 	box-shadow: 0 1px 1px rgba(#000, .1);
 	z-index: 10;
 
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+
 	nav {
 		display: inline-block;
 	}
 
 	h2 {
-		position: absolute;
-    	display: inline-block;
-    	top: 22%;
-		width: 65%;
-    	text-align: center;
-	}
-
-	@include MQ(XS) {
-		h2 {
-			width: 50%;
+			-webkit-align-self: flex-end; 
+			align-self: flex-end;
+			margin: 0;
+			position: absolute;
+			width: 100%;
+			top: initial;
+		
+		@include MQ(XS) {
+			position: absolute;
+			display: inline-block;
+			align-self: center;
+			//width: 65%;
+			text-align: center;
 		}
 	}
 

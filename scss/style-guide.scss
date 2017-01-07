@@ -62,7 +62,7 @@ body {
 	background-color: $color-white;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 xPatterns
 
@@ -90,7 +90,7 @@ xNavigation
 header {
 	background-color: $color-black;
 	opacity: .60;
-	
+
 	h2 {
 		font-style: italic;
 		font-weight: 600;
@@ -626,8 +626,12 @@ xLayouts
     margin-right: auto;
 }
 
+#demo-header {
+	position: relative;
+	z-index: 0;
+}
+
 .cd-hero-box {
-	//-ms-box-orient: horizontal;
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -646,8 +650,8 @@ xLayouts
 	 div.title-block {
 		text-align: left;
 		position: relative;
-		-webkit-align-self: flex-end; align-self: flex-end;
-		//top: 12em;
+		-webkit-align-self: flex-end; 
+		align-self: flex-end;
 		left: 5%;
 		bottom: 10px;
 		max-width: 90%;
