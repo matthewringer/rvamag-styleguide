@@ -424,13 +424,17 @@ xButtons
 xIcons 
 
 -------------------------------- */
-
+#icons {
+	h3 {
+		font-weight: 600;
+		padding: 2em;
+	}
+}
 .cd-icons li {
 	/* icons size */
 
 	width: 80px;
-	height: 80px;
-
+	height: 80px;	
 }
 
 
@@ -462,8 +466,20 @@ xIcons
 		background-color: $youtube;
 	} 
 	
+	&.btn-email, &.btn-print {
+		background-color: darken($color-grey, 50%);
+	}
+
+	&.btn-message {
+		background-color: $color-black;
+	}
+
 	&.btn-instagram {
 		background-color: $instagram;
+	}
+
+	&.btn-linkedin {
+		background-color: $linkedin;
 	}
 
 	border-radius: 50px;
@@ -476,9 +492,14 @@ xIcons
 			left: 33%;
 		}
 
-		&.fa-youtube, &.fa-instagram, &.fa-twitter {
+		&.fa-youtube, &.fa-instagram, &.fa-twitter, &.fa-linkedin {
 			top: 20%;
 			left: 25%
+		}
+
+		&.fa-envelope, &.fa-print, &.fa-comment {
+			top: 20%;
+			left: 21%
 		}
 	}
 }
@@ -705,7 +726,7 @@ xLayouts
     width: 100%;
     table-layout: fixed;
 	background: $color-yellow;
-	height: 20em;
+	max-height: 10em;
 
 	& p {
 		padding-top: 5%;
@@ -796,7 +817,6 @@ xLayouts
 }
 
 .cd-sidebar {
-
 	@include MQ(S) {
 		float: left;
 		width: 75%;
@@ -809,7 +829,18 @@ xLayouts
 
 	@include MQ(S) {
 		display: block;
+
+		h2 {
+    		font-size: 1.6rem;
+		}
 	}
+
+	@include MQ(S) {
+		h2 {
+    		font-size: initial;
+		}
+	}
+
 
 	overflow: hidden;
 	& div.widesky-ad {
@@ -829,21 +860,46 @@ xLayouts
 		background-color: $color-grey;
 	}
 
+	// todo: social button scss is a mess. 
 	& ul.social-buttons {
 		border-left: .3em solid $color-black;
 
-		& li {
-			    height: 55px;
-    			width: 55px;
-				margin: 1em;
+		padding: 0 0 0 .5em;
+		
+		li { 
+			margin: .3em;
+			height: 30px;
+			width: 30px;
+			font-size: 1.13em;
+			
+			span {
+					font-weight: 600;
+					font-size: 1.6rem;
+					color: $color-black;
+					position: relative;
+					left: 35px;
+					top: 6px;
+				}
+		}
+
+		@include MQ(L) {
+			padding: 0 0 0.5em 1em;
+
+			li { 
+				margin: .3em;
+				height: 40px;
+				width: 40px;
+				font-size: 1.45em;
+
 				span {
 					font-weight: 600;
 					font-size: 1.8rem;
 					color: $color-black;
 					position: relative;
-					left: 60px;
-					top: 15px;
+					left: 50px;
+					top: 8px;
 				}
+			}
 		}
 	}
 }
@@ -1015,6 +1071,12 @@ xLayouts
 			width: 70%;
 		}
 		
+		// & aside.widesky-sidebar {
+		// 	display: inline-block;
+		// 	width: 100%;
+		// 	height: auto;
+		// }
+
 		@include MQ(S) {
 			& article {
 				width: 75%;
@@ -1026,6 +1088,7 @@ xLayouts
 				text-align: center;
 				margin-top: 1em;
 			}
+
 			& aside::before {
 				content: "Advertizement";
 				padding-top: 1em;
@@ -1046,17 +1109,22 @@ xLayouts
 		.cd-icons {
 			border: none;
 			text-align: center;
+
+			padding: 1.5em;
 			li { 
-				margin: .1em;
-				height: 55px;
-    			width: 55px;
-				span {
-					font-weight: 600;
-					font-size: 1.8rem;
-					color: $color-black;
-					position: relative;
-					left: 60px;
-					top: 15px;
+				margin: .3em;
+				height: 30px;
+				width: 30px;
+				font-size: 1.13em;
+			}
+
+			@include MQ(S) {
+				padding: 1.5em;
+				li { 
+					margin: .3em;
+					height: 40px;
+					width: 40px;
+					font-size: 1.45em;
 				}
 			}
 		}
