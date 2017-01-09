@@ -146,10 +146,14 @@ jQuery(document).ready(function($){
 			if( parseInt(actual.offset().top - $(window).scrollTop()) < 1 && parseInt( actual.offset().top + actualHeight) > $(window).scrollTop() ){
 				var titleBlock = actual.children('.title-block').eq(0);
 				var pad = parseInt($(window).scrollTop() - actual.offset().top) * .8;
-				console.log( pad );
-
+				var pos = actual.css('background-position').split(' '); //.replace('%','');
+				
+				if ( parseInt(pos[1]) - (pad * .01) > 0 ){
+					pos[1] = 25 - (pad * .1) + "%";
+				}
+				
 				actual.css('padding-bottom', pad + "px")
-				//titleBlock.css('bottom', parseInt( 10 + bottom + (bottom * .1)) +  "px")
+				actual.css('background-position', pos[0] +" "+ pos[1])
 			}
 		});
 	}
