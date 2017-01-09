@@ -847,14 +847,22 @@ xLayouts
 
 
 	overflow: hidden;
+
 	& div.widesky-ad {
 		background-color: $color-yellow;
-		height: 30em;
-		padding-top: 50%;
+		width: 100%;
+		padding-top: 200%;
+		position: relative;
 		text-align: center;
 
 		p {
-			width: 100%;
+			background-color: $color-yellow;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			padding-top: 10%;
 		}
 	}
 	

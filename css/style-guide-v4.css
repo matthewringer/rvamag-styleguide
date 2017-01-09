@@ -2925,11 +2925,18 @@ xLayouts
       font-size: initial; } }
   .widesky-sidebar div.widesky-ad {
     background-color: #fff200;
-    height: 30em;
-    padding-top: 50%;
+    width: 100%;
+    padding-top: 200%;
+    position: relative;
     text-align: center; }
     .widesky-sidebar div.widesky-ad p {
-      width: 100%; }
+      background-color: #fff200;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding-top: 10%; }
   .widesky-sidebar div.social-buttons {
     margin-top: 1em;
     padding: 1em;
@@ -3627,4 +3634,4 @@ section {
 .no-csstransitions .cd-select::after {
   display: none; }
 
-/*# sourceMappingURL=style-guide-v3.css.map */
+/*# sourceMappingURL=style-guide-v4.css.map */
