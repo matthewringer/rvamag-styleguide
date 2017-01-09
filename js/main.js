@@ -111,19 +111,13 @@ jQuery(document).ready(function($){
 				$('header').css('opacity', .6);
 			}
 	}
+
     function updateNavigation() {
 		contentSections.each(function(){
 			var actual = $(this),
 				actualHeight = actual.height(),
 				topMargin = actual.css('marginTop').replace('px', ''),
 				actualAnchor = $('#main-nav').find('a[href="#'+actual.attr('id')+'"]');
-
-				// if(actual[0].id === 'layouts') {
-				// 	console.log( 
-				// 		"(" + parseInt(actual.offset().top - $('#main-nav').height() - topMargin  )  + 
-				// 		" ) <= " + parseInt($(window).scrollTop()) + " && ( " + parseInt(actual.offset().top +  actualHeight - topMargin - 200) + " > " +  parseInt($(window).scrollTop() +1) + ")"
-				// 		);
-				// }
 
 			if ( ( parseInt(actual.offset().top - $('#main-nav').height() - topMargin  ) <= $(window).scrollTop() ) && ( parseInt(actual.offset().top +  actualHeight - topMargin - 200)  > $(window).scrollTop() +1 ) ) {
 				actualAnchor.addClass('selected');
@@ -133,6 +127,34 @@ jQuery(document).ready(function($){
 		});
 	}
 });
+
+/*******************
+	fx paralax scrolling 
+********************/
+
+	var paralaxElements = $('.fx-paralax');
+
+	$(window).on('scroll', function(){
+    	scrollParalax();
+    });
+
+	function scrollParalax() {
+		paralaxElements.each(function() {
+			var actual = $(this),
+			actualHeight = actual.height();
+
+			if( parseInt(actual.offset().top - $(window).scrollTop()) < 1 && parseInt( actual.offset().top + actualHeight) > $(window).scrollTop() ){
+				var titleBlock = actual.children('.title-block').eq(0);
+				var pad = parseInt($(window).scrollTop() - actual.offset().top) * .8;
+				console.log( pad );
+
+				actual.css('padding-bottom', pad + "px")
+				//titleBlock.css('bottom', parseInt( 10 + bottom + (bottom * .1)) +  "px")
+			}
+		});
+	}
+
+
 
 
 /*******************
@@ -157,10 +179,7 @@ jQuery(document).ready(function($){
 	});
 
 	function setAdRatios(element, textElement) {
-		console.log(textElement.text());
-
 		var height = element.css('height'),
 			width = element.css('width');
-
 		textElement.text('H: '+height + ' x '+ 'W: '+width);
 	}

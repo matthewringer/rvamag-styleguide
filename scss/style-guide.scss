@@ -211,7 +211,7 @@ h1 {
 	background-color: $color-black;
 	font-size: 2.4rem;
 	font-weight: 800;
-	line-height: 1.2;
+	line-height: 1.6;
 	margin: 0 0 .4em;
 	padding: 7pt 5pt;
 
@@ -682,18 +682,22 @@ xLayouts
 		-webkit-align-self: flex-end; 
 		align-self: flex-end;
 		left: 5%;
-		bottom: 10px;
+		bottom: 10%;
 		max-width: 90%;
 		
 		h1 {
-			display: inline-block;
+			display: inline;
 		}
 
 		h3 {
-			margin-top: 5px;
-			display: inline-block;
-			margin: 0;
+			display: inline;
 			max-width:80%;
+		}
+		
+		h3:before{
+			content:" "; 
+			display:inline-block; 
+			height:40px;
 		}
 	}
 
